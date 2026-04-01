@@ -49,18 +49,17 @@ export default function LeadCapture() {
   }
 
   return (
-    <section id="get-started" className="relative min-h-[600px] lg:min-h-[640px] overflow-hidden">
+    <section id="get-started" className="relative min-h-[760px] sm:min-h-[700px] lg:min-h-[640px] overflow-hidden">
       <Image
-        src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=1600&q=80&auto=format"
+        src="/lead-capture-bg.png"
         alt=""
         fill
-        className="object-cover"
-        style={{ objectPosition: "center 30%" }}
+        className="object-cover object-[95%_32%] sm:object-[72%_30%] lg:object-[58%_28%]"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/25 lg:to-black/20" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 flex items-center min-h-[600px] lg:min-h-[640px]">
+      <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-12 sm:py-24 lg:py-32 flex items-end lg:items-center min-h-[760px] sm:min-h-[700px] lg:min-h-[640px]">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
           {/* Left: headline + form */}
           <AnimatedSection direction="left">
@@ -156,29 +155,29 @@ export default function LeadCapture() {
           </AnimatedSection>
 
           {/* Right: white UI card — ISA allowance tracker */}
-          <AnimatedSection direction="right" delay={0.15} className="flex justify-center lg:justify-start lg:pl-12">
-            <div className="relative bg-white rounded-2xl shadow-2xl p-6 w-64">
-              <div className="flex items-center justify-between mb-4">
-                <p className="text-sm font-semibold text-black">ISA Allowance</p>
-                <span className="text-xs text-emerald-600 font-medium bg-emerald-50 px-2 py-0.5 rounded-full">2025/26</span>
+          <AnimatedSection direction="right" delay={0.15} className="hidden lg:flex justify-center lg:justify-start lg:pl-4">
+            <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-5 w-[13.5rem] sm:w-56 lg:w-64 max-w-[85vw]">
+              <div className="flex items-center justify-between mb-2 sm:mb-3">
+                <p className="text-xs sm:text-sm font-semibold text-black">ISA Allowance</p>
+                <span className="text-[10px] sm:text-xs text-emerald-600 font-medium bg-emerald-50 px-1.5 py-0.5 rounded-full">2025/26</span>
               </div>
-              <p className="text-3xl font-bold text-black">£15,000</p>
-              <p className="text-xs text-neutral-400 mt-0.5">of £20,000 used</p>
-              <div className="mt-4 h-2.5 rounded-full bg-neutral-100 overflow-hidden">
+              <p className="text-2xl sm:text-3xl font-bold text-black">£15,000</p>
+              <p className="text-[10px] sm:text-xs text-neutral-400 mt-0.5">of £20,000 used</p>
+              <div className="mt-3 sm:mt-4 h-2 sm:h-2.5 rounded-full bg-neutral-100 overflow-hidden">
                 <div className="h-full w-3/4 rounded-full bg-brand-red" />
               </div>
-              <div className="mt-5 grid grid-cols-2 gap-3">
-                <div className="rounded-xl bg-neutral-50 border border-neutral-100 p-3">
-                  <p className="text-[10px] text-neutral-400 mb-0.5">Tax saved</p>
-                  <p className="text-sm font-bold text-emerald-600">£1,284</p>
+              <div className="mt-3 sm:mt-5 grid grid-cols-2 gap-2 sm:gap-3">
+                <div className="rounded-lg sm:rounded-xl bg-neutral-50 border border-neutral-100 p-2 sm:p-3">
+                  <p className="text-[9px] sm:text-[10px] text-neutral-400 mb-0.5">Tax saved</p>
+                  <p className="text-xs sm:text-sm font-bold text-emerald-600">£1,284</p>
                 </div>
-                <div className="rounded-xl bg-neutral-50 border border-neutral-100 p-3">
-                  <p className="text-[10px] text-neutral-400 mb-0.5">Remaining</p>
-                  <p className="text-sm font-bold text-black">£5,000</p>
+                <div className="rounded-lg sm:rounded-xl bg-neutral-50 border border-neutral-100 p-2 sm:p-3">
+                  <p className="text-[9px] sm:text-[10px] text-neutral-400 mb-0.5">Remaining</p>
+                  <p className="text-xs sm:text-sm font-bold text-black">£5,000</p>
                 </div>
               </div>
-              <div className="mt-4 rounded-lg bg-black py-2.5 text-center">
-                <p className="text-xs font-semibold text-white">Top Up ISA</p>
+              <div className="mt-3 sm:mt-4 rounded-md sm:rounded-lg bg-black py-2 sm:py-2.5 text-center">
+                <p className="text-[10px] sm:text-xs font-semibold text-white">Top Up ISA</p>
               </div>
             </div>
           </AnimatedSection>

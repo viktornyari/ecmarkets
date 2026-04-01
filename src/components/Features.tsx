@@ -13,31 +13,30 @@ const features = [
       "Fractional shares available",
       "Set up regular investments",
     ],
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&auto=format",
-    objectPosition: "center top",
+    image: "/features/feature-1.png",
+    objectPosition: "center 30%",
     cardPos: "bottom-4 left-4 sm:bottom-5 sm:left-5",
     visual: (
-      <div className="relative bg-white rounded-2xl shadow-2xl p-6 w-52 z-10">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="h-10 w-10 rounded-full bg-brand-red-50 flex items-center justify-center">
-            <svg className="h-5 w-5 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-6 w-36 sm:w-52 z-10">
+        <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
+          <div className="h-7 w-7 sm:h-10 sm:w-10 rounded-full bg-brand-red-50 flex items-center justify-center shrink-0">
+            <svg className="h-3.5 w-3.5 sm:h-5 sm:w-5 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
             </svg>
           </div>
           <div>
-            <p className="text-xs text-neutral-400">Quick Invest</p>
-            <p className="text-sm font-semibold text-black">£500</p>
+            <p className="text-[9px] sm:text-xs text-neutral-400">Quick Invest</p>
+            <p className="text-xs sm:text-sm font-semibold text-black">£500</p>
           </div>
         </div>
-        <div className="space-y-2">
-          <div className="h-2 rounded-full bg-neutral-100 overflow-hidden">
+        <div className="space-y-1 sm:space-y-2">
+          <div className="h-1.5 sm:h-2 rounded-full bg-neutral-100 overflow-hidden">
             <div className="h-full w-3/4 rounded-full bg-brand-red" />
           </div>
-          <p className="text-[10px] text-neutral-400">Global Index Fund &bull; 75%</p>
+          <p className="text-[8px] sm:text-[10px] text-neutral-400">Global Index Fund &bull; 75%</p>
         </div>
-        <div className="mt-3 rounded-lg bg-black py-2.5 text-center">
-          <p className="text-xs font-semibold text-white">Confirm Investment</p>
+        <div className="mt-2 sm:mt-3 rounded-md sm:rounded-lg bg-black py-1.5 sm:py-2.5 text-center">
+          <p className="text-[9px] sm:text-xs font-semibold text-white">Confirm Investment</p>
         </div>
       </div>
     ),
@@ -51,19 +50,18 @@ const features = [
       "Interactive performance charts",
       "Custom price alerts",
     ],
-    image:
-      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80&auto=format",
-    objectPosition: "center 25%",
+    image: "/features/feature-2.png",
+    objectPosition: "center 20%",
     cardPos: "bottom-4 right-4 sm:bottom-5 sm:right-5",
     visual: (
-      <div className="relative bg-white rounded-2xl shadow-2xl p-5 w-56 z-10">
-        <div className="flex justify-between items-center mb-3">
-          <p className="text-sm font-semibold text-black">Portfolio</p>
-          <span className="text-xs text-emerald-600 font-medium bg-emerald-50 px-2 py-0.5 rounded-full">Live</span>
+      <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-5 w-40 sm:w-56 z-10">
+        <div className="flex justify-between items-center mb-2 sm:mb-3">
+          <p className="text-xs sm:text-sm font-semibold text-black">Portfolio</p>
+          <span className="text-[9px] sm:text-xs text-emerald-600 font-medium bg-emerald-50 px-1.5 py-0.5 rounded-full">Live</span>
         </div>
-        <p className="text-2xl font-bold text-black">£12,847</p>
-        <p className="text-xs text-emerald-600 font-medium">+11.1% all time</p>
-        <div className="mt-4 h-20">
+        <p className="text-lg sm:text-2xl font-bold text-black">£12,847</p>
+        <p className="text-[10px] sm:text-xs text-emerald-600 font-medium">+11.1% all time</p>
+        <div className="mt-2 sm:mt-4 h-12 sm:h-20">
           <svg viewBox="0 0 200 60" className="w-full h-full" preserveAspectRatio="none">
             <defs>
               <linearGradient id="featureGradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -87,15 +85,14 @@ const features = [
       "Sector & geography analysis",
       "Risk score assessment",
     ],
-    image:
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80&auto=format",
-    objectPosition: "center 30%",
+    image: "/features/feature-3.png",
+    objectPosition: "center 25%",
     cardPos: "bottom-4 left-4 sm:bottom-5 sm:left-5",
     visual: (
-      <div className="relative bg-white rounded-2xl shadow-2xl p-5 w-56 z-10">
-        <p className="text-sm font-semibold text-black mb-4">Allocation</p>
-        <div className="flex items-center gap-4 mb-4">
-          <div className="relative h-20 w-20">
+      <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-5 w-40 sm:w-56 z-10">
+        <p className="text-xs sm:text-sm font-semibold text-black mb-2 sm:mb-4">Allocation</p>
+        <div className="flex items-center gap-2 sm:gap-4 mb-2 sm:mb-4">
+          <div className="relative h-14 w-14 sm:h-20 sm:w-20 shrink-0">
             <svg viewBox="0 0 36 36" className="h-full w-full -rotate-90">
               <circle cx="18" cy="18" r="14" fill="none" stroke="#f5f5f5" strokeWidth="4" />
               <circle cx="18" cy="18" r="14" fill="none" stroke="#000000" strokeWidth="4" strokeDasharray="52 88" />
@@ -103,23 +100,23 @@ const features = [
               <circle cx="18" cy="18" r="14" fill="none" stroke="#d4d4d4" strokeWidth="4" strokeDasharray="10 88" strokeDashoffset="-78" />
             </svg>
           </div>
-          <div className="space-y-1.5 text-xs">
-            <div className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-black" />
+          <div className="space-y-1 sm:space-y-1.5 text-[10px] sm:text-xs">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-black shrink-0" />
               <span className="text-neutral-600">Equities 60%</span>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-brand-red" />
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-brand-red shrink-0" />
               <span className="text-neutral-600">Bonds 30%</span>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="h-2.5 w-2.5 rounded-full bg-neutral-300" />
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-neutral-300 shrink-0" />
               <span className="text-neutral-600">Cash 10%</span>
             </div>
           </div>
         </div>
-        <div className="rounded-lg bg-neutral-50 border border-neutral-100 p-2.5 text-center">
-          <p className="text-xs text-neutral-600 font-medium">Risk Level: Moderate</p>
+        <div className="rounded-md sm:rounded-lg bg-neutral-50 border border-neutral-100 p-1.5 sm:p-2.5 text-center">
+          <p className="text-[10px] sm:text-xs text-neutral-600 font-medium">Risk Level: Moderate</p>
         </div>
       </div>
     ),
@@ -136,7 +133,7 @@ function CheckIcon() {
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 sm:py-32 bg-neutral-50">
+    <section id="features" className="py-24 sm:py-32 bg-neutral-50 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-2xl mx-auto mb-16" trackName="features">
           <span className="inline-block text-sm font-semibold text-brand-red tracking-wide uppercase mb-3">

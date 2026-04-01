@@ -16,7 +16,7 @@ const rows = [
 
 function CheckIcon() {
   return (
-    <svg className="h-5 w-5 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
+    <svg className="h-4 w-4 sm:h-5 sm:w-5 shrink-0 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
       <path
         fillRule="evenodd"
         d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -47,23 +47,25 @@ export default function ComparisonTable() {
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
-          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
-            <table className="w-full text-left">
+          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+            <table className="w-full text-left table-fixed">
               <thead>
                 <tr className="border-b border-white/10">
-                  <th className="px-6 py-4 text-sm font-semibold text-white/50">
+                  <th className="w-[38%] px-3 py-3 sm:px-6 sm:py-4 text-[11px] sm:text-sm font-semibold text-white/50">
                     Feature
                   </th>
-                  <th className="px-6 py-4 text-sm font-semibold text-white">
-                    <div className="flex items-center gap-2">
-                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-brand-red text-white text-xs font-bold">
+                  <th className="w-[31%] px-3 py-3 sm:px-6 sm:py-4 text-[11px] sm:text-sm font-semibold text-white">
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <span className="hidden sm:inline-flex h-6 w-6 items-center justify-center rounded-md bg-brand-red text-white text-xs font-bold shrink-0">
                         S
                       </span>
-                      Stocks &amp; Shares ISA
+                      <span className="sm:hidden">ISA</span>
+                      <span className="hidden sm:inline">Stocks &amp; Shares ISA</span>
                     </div>
                   </th>
-                  <th className="px-6 py-4 text-sm font-semibold text-white/50">
-                    General Investment Account
+                  <th className="w-[31%] px-3 py-3 sm:px-6 sm:py-4 text-[11px] sm:text-sm font-semibold text-white/50">
+                    <span className="sm:hidden">GIA</span>
+                    <span className="hidden sm:inline">General Investment Account</span>
                   </th>
                 </tr>
               </thead>
@@ -75,18 +77,18 @@ export default function ComparisonTable() {
                       i % 2 === 0 ? "" : "bg-white/[0.02]"
                     }`}
                   >
-                    <td className="px-6 py-4 text-sm font-medium text-white/70">
+                    <td className="px-3 py-2.5 sm:px-6 sm:py-4 text-[11px] sm:text-sm font-medium text-white/70">
                       {row.feature}
                     </td>
-                    <td className="px-6 py-4 text-sm text-white">
-                      <div className="flex items-center gap-2">
+                    <td className="px-3 py-2.5 sm:px-6 sm:py-4 text-[11px] sm:text-sm text-white">
+                      <div className="flex items-center gap-1 sm:gap-2">
                         {row.isa === "None" && <CheckIcon />}
                         <span className={row.isa === "None" ? "font-semibold text-emerald-400" : ""}>
                           {row.isa}
                         </span>
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-sm text-white/40">{row.gia}</td>
+                    <td className="px-3 py-2.5 sm:px-6 sm:py-4 text-[11px] sm:text-sm text-white/40">{row.gia}</td>
                   </tr>
                 ))}
               </tbody>
