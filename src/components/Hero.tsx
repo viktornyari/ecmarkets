@@ -10,9 +10,11 @@ export default function Hero() {
   const [entered, setEntered] = useState(false);
   return (
     <section className="relative flex flex-col overflow-hidden bg-black">
-      {/* Subtle glow — left side only, away from phone */}
+      {/* Subtle red accents — kept away from phone area */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-60 left-[10%] h-[500px] w-[500px] rounded-full bg-brand-red/6 blur-[120px]" />
+        <div className="absolute -top-56 -left-24 h-[440px] w-[440px] rounded-full bg-brand-red/12 blur-[120px]" />
+        <div className="absolute top-[24%] left-[26%] h-[300px] w-[300px] rounded-full bg-brand-red/8 blur-[110px]" />
+        <div className="absolute -bottom-32 left-[14%] h-[280px] w-[280px] rounded-full bg-brand-red/10 blur-[105px]" />
       </div>
 
       {/* Fine grid */}
