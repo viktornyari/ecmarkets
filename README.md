@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EC Markets – Stocks & Shares ISA Landing Page
+
+A high-converting, performance-optimised landing page for EC Markets' ISA investment product, built with Next.js, Tailwind CSS, and Framer Motion.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router, Static Generation)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **Animations:** Framer Motion
+- **Deployment:** Vercel (recommended)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+cd isa-landing
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── layout.tsx          # Root layout with SEO metadata & JSON-LD
+│   ├── page.tsx            # Landing page (composes all sections)
+│   └── globals.css         # Global styles & Tailwind config
+├── components/
+│   ├── Header.tsx          # Sticky nav with scroll-aware styling
+│   ├── Hero.tsx            # Hero with entrance animations & phone mockup
+│   ├── Benefits.tsx        # 4 benefit cards with hover interactions
+│   ├── Features.tsx        # 3 feature sections with app visuals
+│   ├── ComparisonTable.tsx # ISA vs GIA side-by-side table
+│   ├── SocialProof.tsx     # Reviews, ratings & trust badges
+│   ├── LeadCapture.tsx     # Email signup form with validation
+│   ├── DownloadCTA.tsx     # App Store / Google Play download buttons
+│   ├── Footer.tsx          # Links + FCA risk disclaimer
+│   ├── ExitIntent.tsx      # Exit-intent popup modal
+│   ├── StickyBottomCTA.tsx # Mobile sticky download bar
+│   └── AnimatedSection.tsx # Reusable scroll-triggered animation wrapper
+└── lib/
+    └── analytics.ts        # Event tracking (GA4 / GTM ready)
+```
 
-## Learn More
+## Key Features
 
-To learn more about Next.js, take a look at the following resources:
+- **Performance:** Statically generated, zero external images, < 2s target load time
+- **SEO:** Semantic HTML, Open Graph, Twitter Cards, JSON-LD structured data
+- **Animations:** Stripe-inspired smooth reveals, Revolut-style product motion, hover interactions
+- **Conversion:** Dual CTA hierarchy, sticky mobile bar, exit intent popup, email capture
+- **Compliance:** FCA risk disclaimers, FSCS protection messaging, financial promotion notices
+- **Tracking:** GA4 + GTM integration points, event queue for CTA clicks, form submissions, app install intent
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build    # Production build
+npm run start    # Serve production build
+npm run lint     # ESLint
+```
 
-## Deploy on Vercel
+## Documentation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [UX Rationale & User Journey](./UX-RATIONALE.md) – Target audience, conversion journey, animation strategy, wireframe

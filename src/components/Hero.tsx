@@ -1,0 +1,165 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { trackConversion } from "@/lib/analytics";
+import TickerTape from "./TickerTape";
+
+export default function Hero() {
+  const [entered, setEntered] = useState(false);
+  return (
+    <section className="relative flex flex-col overflow-hidden bg-black">
+      {/* Subtle glow — left side only, away from phone */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-60 left-[10%] h-[500px] w-[500px] rounded-full bg-brand-red/6 blur-[120px]" />
+      </div>
+
+      {/* Fine grid */}
+      <div
+        className="absolute inset-0 opacity-[0.035]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
+
+      <div className="relative flex-1 flex items-center mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 pt-28 pb-12 md:pt-36 md:pb-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+            >
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-1.5 text-sm font-medium text-white/70 mb-6">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse" />
+                ISA allowance 2025/26: £20,000
+              </span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight"
+            >
+              Invest tax-free
+              <br />
+              with a{" "}
+              <span className="text-brand-red">
+                Stocks &amp; Shares ISA
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
+              className="mt-6 text-lg sm:text-xl text-white/50 leading-relaxed max-w-xl"
+            >
+              Grow your wealth without paying tax on gains or dividends. Low fees,
+              real-time tracking, and a powerful app — all backed by FCA regulation.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+              className="mt-10 flex flex-col sm:flex-row gap-4"
+            >
+              <a
+                href="#download"
+                onClick={() => trackConversion("app_download")}
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand-red px-8 py-4 text-base font-semibold text-white shadow-xl shadow-brand-red/20 transition-all hover:bg-brand-red-700 hover:shadow-brand-red/30 hover:-translate-y-0.5 active:translate-y-0"
+              >
+                <svg
+                  className="h-5 w-5 transition-transform group-hover:scale-110"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  />
+                </svg>
+                Download the App
+              </a>
+              <a
+                href="#features"
+                onClick={() => trackConversion("learn_more")}
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-blue px-8 py-4 text-base font-semibold text-white shadow-xl shadow-brand-blue/20 transition-all hover:bg-brand-blue-700 hover:shadow-brand-blue/30 hover:-translate-y-0.5 active:translate-y-0"
+              >
+                Learn More
+                <svg
+                  className="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="mt-10 flex items-center gap-6 text-sm text-white/40"
+            >
+              {["FCA Regulated", "£0 Platform Fee", "FSCS Protected"].map((label) => (
+                <div key={label} className="flex items-center gap-2">
+                  <svg className="h-4 w-4 text-brand-red" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  {label}
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Phone mockup — Framer Motion animated */}
+          <div className="relative hidden lg:flex justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 60, scale: 0.92 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              onAnimationComplete={() => setEntered(true)}
+              className="relative w-[420px]"
+            >
+              <motion.div
+                animate={entered ? { y: [0, -10, 0] } : {}}
+                transition={entered ? { duration: 3, repeat: Infinity, ease: "easeInOut" } : {}}
+              >
+                <Image
+                  src="/hero-phone.png"
+                  alt="EC Markets app showing portfolio"
+                  width={840}
+                  height={1050}
+                  className="relative w-full h-auto drop-shadow-2xl"
+                  priority
+                  unoptimized
+                />
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      {/* Ticker tape — above the fold */}
+      <div className="relative border-t border-white/5">
+        <TickerTape />
+      </div>
+    </section>
+  );
+}
