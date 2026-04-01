@@ -27,17 +27,26 @@ export function trackEvent(
 
   if (typeof window !== "undefined") {
     console.log(`[Analytics] ${event}`, properties);
+    const debugEnabled =
+      window.location.search.includes("ga_debug=1") ||
+      window.localStorage.getItem("ga_debug") === "1";
+
+    const gaPayload: Record<string, string | number | boolean> = {
+      ...(properties || {}),
+      // Helps surface events in GA4 DebugView while troubleshooting.
+      ...(debugEnabled ? { debug_mode: true } : {}),
+    };
 
     // Google Analytics 4 integration point
     if ("gtag" in window) {
       const gtag = (window as Record<string, (...args: unknown[]) => void>).gtag;
-      gtag?.("event", event, properties);
+      gtag?.("event", event, gaPayload);
     }
 
     // DataLayer push for GTM
     const w = window as unknown as Record<string, unknown[]>;
     if (w.dataLayer) {
-      w.dataLayer.push({ event, ...properties });
+      w.dataLayer.push({ event, ...gaPayload });
     }
   }
 }
