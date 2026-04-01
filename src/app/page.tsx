@@ -1,16 +1,18 @@
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Benefits from "@/components/Benefits";
-import Features from "@/components/Features";
-import AppShowcase from "@/components/AppShowcase";
-import ComparisonTable from "@/components/ComparisonTable";
-import SocialProof from "@/components/SocialProof";
-import LeadCapture from "@/components/LeadCapture";
-import FAQ from "@/components/FAQ";
-import DownloadCTA from "@/components/DownloadCTA";
 import Footer from "@/components/Footer";
-import ExitIntent from "@/components/ExitIntent";
-import StickyBottomCTA from "@/components/StickyBottomCTA";
+
+const AppShowcase = dynamic(() => import("@/components/AppShowcase"));
+const Features = dynamic(() => import("@/components/Features"));
+const ComparisonTable = dynamic(() => import("@/components/ComparisonTable"));
+const SocialProof = dynamic(() => import("@/components/SocialProof"));
+const LeadCapture = dynamic(() => import("@/components/LeadCapture"));
+const FAQ = dynamic(() => import("@/components/FAQ"));
+const DownloadCTA = dynamic(() => import("@/components/DownloadCTA"));
+const ExitIntent = dynamic(() => import("@/components/ExitIntent"));
+const StickyBottomCTA = dynamic(() => import("@/components/StickyBottomCTA"));
 
 export default function Home() {
   return (
