@@ -13,7 +13,7 @@ const features = [
       "Fractional shares available",
       "Set up regular investments",
     ],
-    image: "/features/feature-1.png",
+    image: "/features/feature-1.jpg",
     objectPosition: "center 30%",
     cardPos: "bottom-4 left-4 sm:bottom-5 sm:left-5",
     visual: (
@@ -50,7 +50,7 @@ const features = [
       "Interactive performance charts",
       "Custom price alerts",
     ],
-    image: "/features/feature-2.png",
+    image: "/features/feature-2.jpg",
     objectPosition: "center 20%",
     cardPos: "bottom-4 right-4 sm:bottom-5 sm:right-5",
     visual: (
@@ -85,7 +85,7 @@ const features = [
       "Sector & geography analysis",
       "Risk score assessment",
     ],
-    image: "/features/feature-3.png",
+    image: "/features/feature-3.jpg",
     objectPosition: "center 25%",
     cardPos: "bottom-4 left-4 sm:bottom-5 sm:left-5",
     visual: (

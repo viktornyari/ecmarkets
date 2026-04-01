@@ -8,7 +8,7 @@ export default function DownloadCTA() {
   return (
     <section id="download" className="relative min-h-[500px] overflow-hidden">
       <Image
-        src="/download-cta-bg-v2.png"
+        src="/download-cta-bg-v2.jpg"
         alt=""
         fill
         className="object-cover"

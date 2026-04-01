@@ -18,30 +18,38 @@ export default function TickerTape() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(max-width: 767px)").matches) return;
+
     const container = containerRef.current;
     if (!container) return;
 
-    const widgetDiv = document.createElement("div");
-    widgetDiv.className = "tradingview-widget-container__widget";
-    container.appendChild(widgetDiv);
+    const loadWidget = () => {
+      const widgetDiv = document.createElement("div");
+      widgetDiv.className = "tradingview-widget-container__widget";
+      container.appendChild(widgetDiv);
 
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src =
-      "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
-    script.async = true;
-    script.textContent = JSON.stringify({
-      symbols: SYMBOLS,
-      showSymbolLogo: true,
-      isTransparent: true,
-      displayMode: "regular",
-      colorTheme: "dark",
-      locale: "en",
-    });
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src =
+        "https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js";
+      script.async = true;
+      script.textContent = JSON.stringify({
+        symbols: SYMBOLS,
+        showSymbolLogo: true,
+        isTransparent: true,
+        displayMode: "regular",
+        colorTheme: "dark",
+        locale: "en",
+      });
 
-    container.appendChild(script);
+      container.appendChild(script);
+    };
+
+    // Defer third-party script to reduce first-load blocking work.
+    const timeout = window.setTimeout(loadWidget, 1500);
 
     return () => {
+      window.clearTimeout(timeout);
       container.innerHTML = "";
     };
   }, []);

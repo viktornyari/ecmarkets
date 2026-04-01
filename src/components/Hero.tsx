@@ -31,7 +31,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
+              transition={{ duration: 0.45, ease: [0.25, 0.4, 0.25, 1] }}
             >
               <span className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-1.5 text-sm font-medium text-white/70 mb-6">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse" />
@@ -42,7 +42,7 @@ export default function Hero() {
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
+              transition={{ duration: 0.5, delay: 0.05, ease: [0.25, 0.4, 0.25, 1] }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight"
             >
               Invest tax-free
@@ -56,7 +56,7 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
+              transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
               className="mt-6 text-lg sm:text-xl text-white/50 leading-relaxed max-w-xl"
             >
               Grow your wealth without paying tax on gains or dividends. Low fees,
@@ -66,7 +66,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
+              transition={{ duration: 0.5, delay: 0.15, ease: [0.25, 0.4, 0.25, 1] }}
               className="mt-10 flex flex-col sm:flex-row gap-4"
             >
               <a
@@ -150,8 +150,6 @@ export default function Hero() {
                   width={840}
                   height={1050}
                   className="relative w-full h-auto drop-shadow-2xl"
-                  priority
-                  unoptimized
                 />
               </motion.div>
             </motion.div>
@@ -160,7 +158,7 @@ export default function Hero() {
       </div>
 
       {/* Ticker tape — above the fold */}
-      <div className="relative border-t border-white/5">
+      <div className="relative border-t border-white/5 hidden md:block">
         <TickerTape />
       </div>
     </section>

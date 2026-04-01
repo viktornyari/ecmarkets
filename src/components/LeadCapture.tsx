@@ -51,7 +51,7 @@ export default function LeadCapture() {
   return (
     <section id="get-started" className="relative min-h-[760px] sm:min-h-[700px] lg:min-h-[640px] overflow-hidden">
       <Image
-        src="/lead-capture-bg.png"
+        src="/lead-capture-bg.jpg"
         alt=""
         fill
         className="object-cover object-[95%_32%] sm:object-[72%_30%] lg:object-[58%_28%]"
