@@ -139,7 +139,7 @@ export default function Features() {
           <span className="inline-block text-sm font-semibold text-brand-red tracking-wide uppercase mb-3">
             Product Features
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-black tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black tracking-tight">
             Powerful tools, beautifully simple
           </h2>
           <p className="mt-4 text-lg text-neutral-500 leading-relaxed">
