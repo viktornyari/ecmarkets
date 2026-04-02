@@ -55,3 +55,8 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+/* Legacy `embed-widget-ticker-tape.js` only — Web Component ticker has no this node */
+.tradingview-widget-container .tradingview-widget-copyright {
+  display: none !important;
+}
