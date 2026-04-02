@@ -1,5 +1,38 @@
 import Image from "next/image";
 
+const EC = "https://www.ecmarkets.co.uk";
+
+const products: { label: string; href: string }[] = [
+  { label: "Stocks & Shares ISA", href: `${EC}/` },
+  { label: "Forex Trading", href: `${EC}/forex-pairs/` },
+  { label: "Precious Metals", href: `${EC}/precious-metals/` },
+  { label: "Crude Oil", href: `${EC}/crude-oil/` },
+];
+
+const company: { label: string; href: string }[] = [
+  { label: "About Us", href: `${EC}/about-us/` },
+  { label: "Careers", href: `${EC}/careers/` },
+  { label: "News", href: `${EC}/news/` },
+  { label: "Contact Us", href: `${EC}/contact-us/` },
+];
+
+const legal: { label: string; href: string }[] = [
+  { label: "Privacy Policy", href: `${EC}/website-privacy-notice/` },
+  {
+    label: "Terms of Service",
+    href: `${EC}/retail-clients-terms-and-conditions-of-business/`,
+  },
+  { label: "Risk Disclosure", href: `${EC}/risk-warning-disclosure/` },
+  {
+    label: "Cookie Policy",
+    href: `${EC}/wp-content/uploads/2025/07/Cookie-Policy.pdf`,
+  },
+  {
+    label: "Complaints Procedure",
+    href: `${EC}/complaints-handling-procedure/`,
+  },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-black text-neutral-300">
@@ -18,25 +51,33 @@ export default function Footer() {
           <div>
             <h4 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">Products</h4>
             <ul className="space-y-1.5 sm:space-y-2.5">
-              {["Stocks & Shares ISA", "Forex Trading", "Precious Metals", "Crude Oil"].map(
-                (item) => (
-                  <li key={item}>
-                    <a href="https://www.ecmarkets.co.uk" className="text-xs sm:text-sm text-neutral-500 hover:text-white transition-colors">
-                      {item}
-                    </a>
-                  </li>
-                )
-              )}
+              {products.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className="text-xs sm:text-sm text-neutral-500 hover:text-white transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
             <h4 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">Company</h4>
             <ul className="space-y-1.5 sm:space-y-2.5">
-              {["About Us", "Careers", "News", "Contact Us"].map((item) => (
-                <li key={item}>
-                  <a href="https://www.ecmarkets.co.uk" className="text-xs sm:text-sm text-neutral-500 hover:text-white transition-colors">
-                    {item}
+              {company.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className="text-xs sm:text-sm text-neutral-500 hover:text-white transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {label}
                   </a>
                 </li>
               ))}
@@ -46,10 +87,15 @@ export default function Footer() {
           <div className="col-span-2 sm:col-span-1">
             <h4 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">Legal</h4>
             <ul className="grid grid-cols-2 sm:grid-cols-1 gap-x-4 gap-y-1.5 sm:space-y-2.5">
-              {["Privacy Policy", "Terms of Service", "Risk Disclosure", "Cookie Policy", "Complaints Procedure"].map((item) => (
-                <li key={item}>
-                  <a href="https://www.ecmarkets.co.uk/legal" className="text-xs sm:text-sm text-neutral-500 hover:text-white transition-colors">
-                    {item}
+              {legal.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className="text-xs sm:text-sm text-neutral-500 hover:text-white transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {label}
                   </a>
                 </li>
               ))}
@@ -95,7 +141,7 @@ export default function Footer() {
             <p>&copy; {new Date().getFullYear()} EC Markets Group Ltd. All rights reserved.</p>
             <div className="flex items-center gap-4">
               <a
-                href="https://register.fca.org.uk/s/firm?id=001b000000MfYWaAAN"
+                href="https://register.fca.org.uk/s/firm?id=001b000000NMlBAAA1"
                 className="hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
