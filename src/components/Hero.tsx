@@ -21,10 +21,12 @@ function useLgViewport() {
 export default function Hero() {
   const [entered, setEntered] = useState(false);
   const showPhone = useLgViewport();
+  // Avoid overflow-hidden on <section>: iOS Safari can show a hairline frame when clipping
+  // composited blur + Framer layers; clip only the absolute mesh/grid shells instead.
   return (
-    <section className="relative flex flex-col overflow-hidden bg-[#0a0a0c]">
+    <section className="relative isolate flex flex-col bg-[#0a0a0c]">
       {/* Ambient mesh: deep burgundy left (copy), navy / indigo right (phone side) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         <div className="absolute -top-48 -left-40 h-[min(520px,90vw)] w-[min(520px,90vw)] rounded-full bg-[#6b1420]/45 blur-[140px]" />
         <div className="absolute top-[18%] -left-16 h-[400px] w-[400px] rounded-full bg-brand-red/25 blur-[130px]" />
         <div className="absolute -bottom-36 left-[5%] h-[340px] w-[340px] rounded-full bg-[#4a0f18]/35 blur-[110px]" />
@@ -35,7 +37,8 @@ export default function Hero() {
 
       {/* Fine grid */}
       <div
-        className="absolute inset-0 opacity-[0.035]"
+        className="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.035]"
+        aria-hidden
         style={{
           backgroundImage:
             "linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px)",
