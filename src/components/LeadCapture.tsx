@@ -67,7 +67,7 @@ export default function LeadCapture() {
               <span className="h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse" />
               Use your ISA allowance before 5 April
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.1] mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight leading-[1.1] mb-4">
               Ready to invest
               <br />
               tax-free?

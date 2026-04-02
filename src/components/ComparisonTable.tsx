@@ -37,7 +37,7 @@ export default function ComparisonTable() {
           <span className="inline-block text-sm font-semibold text-brand-red tracking-wide uppercase mb-3">
             ISA vs GIA
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
             See the tax-free difference
           </h2>
           <p className="mt-4 text-lg text-white/50 leading-relaxed">

@@ -17,7 +17,7 @@ export default function AppShowcase() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-4" trackName="app_showcase">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
             4,000+ Stocks &amp; ETFs
           </h2>
         </AnimatedSection>

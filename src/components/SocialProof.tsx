@@ -84,7 +84,7 @@ export default function SocialProof() {
             <span className="inline-block text-sm font-semibold text-brand-red tracking-wide uppercase mb-3">
               Trusted by thousands
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold text-black tracking-tight">
               Investors love EC Markets
             </h2>
             <p className="mt-4 text-lg text-neutral-500 leading-relaxed">

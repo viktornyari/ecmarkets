@@ -23,7 +23,7 @@ export default function DownloadCTA() {
       <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-12 sm:py-24 lg:py-32 flex items-end sm:items-center min-h-[760px] sm:min-h-[700px] lg:min-h-[640px]">
         <AnimatedSection>
           <div className="max-w-xl">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.1]">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight leading-[1.1]">
               Start investing
               <br />
               tax-free today

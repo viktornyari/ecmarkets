@@ -57,7 +57,7 @@ export default function Benefits() {
           <span className="inline-block text-sm font-semibold text-brand-red tracking-wide uppercase mb-3">
             Why choose our ISA
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-black tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-black tracking-tight">
             Everything you need to invest smarter
           </h2>
           <p className="mt-4 text-lg text-neutral-500 leading-relaxed">
