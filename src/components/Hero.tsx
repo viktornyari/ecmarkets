@@ -19,20 +19,19 @@ function useLgViewport() {
 }
 
 export default function Hero() {
-  const [entered, setEntered] = useState(false);
   const showPhone = useLgViewport();
-  // Avoid overflow-hidden on <section>: iOS Safari can show a hairline frame when clipping
-  // composited blur + Framer layers; clip only the absolute mesh/grid shells instead.
+  // No section overflow-hidden (Safari clip glitches). Hero copy is static — Framer entrance
+  // on iOS caused a dark composited flash; fewer mesh blurs below md helps mobile SI.
   return (
-    <section className="relative isolate flex flex-col bg-[#0a0a0c]">
+    <section className="relative flex flex-col bg-[#0a0a0c]">
       {/* Ambient mesh: deep burgundy left (copy), navy / indigo right (phone side) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         <div className="absolute -top-48 -left-40 h-[min(520px,90vw)] w-[min(520px,90vw)] rounded-full bg-[#6b1420]/45 blur-[140px]" />
-        <div className="absolute top-[18%] -left-16 h-[400px] w-[400px] rounded-full bg-brand-red/25 blur-[130px]" />
-        <div className="absolute -bottom-36 left-[5%] h-[340px] w-[340px] rounded-full bg-[#4a0f18]/35 blur-[110px]" />
+        <div className="absolute top-[18%] -left-16 hidden h-[400px] w-[400px] rounded-full bg-brand-red/25 blur-[130px] md:block" />
+        <div className="absolute -bottom-36 left-[5%] hidden h-[340px] w-[340px] rounded-full bg-[#4a0f18]/35 blur-[110px] md:block" />
         <div className="absolute -top-32 -right-28 h-[min(500px,85vw)] w-[min(500px,85vw)] rounded-full bg-[#152a4a]/55 blur-[130px]" />
-        <div className="absolute top-[30%] -right-10 h-[380px] w-[380px] rounded-full bg-brand-blue-900/35 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[8%] h-[320px] w-[320px] rounded-full bg-[#1a2d4d]/40 blur-[100px]" />
+        <div className="absolute top-[30%] -right-10 hidden h-[380px] w-[380px] rounded-full bg-brand-blue-900/35 blur-[120px] md:block" />
+        <div className="absolute bottom-[-10%] right-[8%] hidden h-[320px] w-[320px] rounded-full bg-[#1a2d4d]/40 blur-[100px] md:block" />
       </div>
 
       {/* Fine grid */}
@@ -49,47 +48,26 @@ export default function Hero() {
       <div className="relative flex-1 flex items-center mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 pt-28 pb-12 md:pt-36 md:pb-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, ease: [0.25, 0.4, 0.25, 1] }}
-            >
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-1.5 text-sm font-medium text-white/70 mb-6">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse" />
-                ISA allowance 2025/26: £20,000
-              </span>
-            </motion.div>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-1.5 text-sm font-medium text-white/70 mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse" />
+              ISA allowance 2025/26: £20,000
+            </span>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.05, ease: [0.25, 0.4, 0.25, 1] }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight"
-            >
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
               Invest tax-free
               <br />
               with a{" "}
               <span className="text-brand-red">
                 Stocks &amp; Shares ISA
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.4, 0.25, 1] }}
-              className="mt-6 text-lg sm:text-xl text-white/50 leading-relaxed max-w-xl"
-            >
+            <p className="mt-6 text-lg sm:text-xl text-white/50 leading-relaxed max-w-xl">
               Grow your wealth without paying tax on gains or dividends. Low fees,
               real-time tracking, and a powerful app — all backed by FCA regulation.
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15, ease: [0.25, 0.4, 0.25, 1] }}
-              className="mt-10 flex flex-col sm:flex-row gap-4"
-            >
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <a
                 href="#download"
                 onClick={() => trackConversion("app_download")}
@@ -126,14 +104,9 @@ export default function Hero() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-              className="mt-10 flex items-center gap-1.5 sm:gap-3 text-[10px] sm:text-sm"
-            >
+            <div className="mt-10 flex items-center gap-1.5 sm:gap-3 text-[10px] sm:text-sm">
               {["FCA Regulated", "£0 Platform Fee", "FSCS Protected"].map((label, i) => (
                 <span key={label} className="contents">
                   <span className="inline-flex items-center gap-1 sm:gap-1.5 whitespace-nowrap rounded-full bg-white/5 border border-white/10 px-2 py-1 sm:px-3 sm:py-1.5 text-white/50">
@@ -149,22 +122,16 @@ export default function Hero() {
                   {i < 2 && <span className="hidden sm:inline text-white/10">|</span>}
                 </span>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           {/* lg+ column shell keeps grid stable; image only mounts at lg+ so mobile skips fetch/decode */}
           <div className="relative hidden lg:flex justify-center min-h-[min(520px,55vh)]">
             {showPhone ? (
-              <motion.div
-                initial={{ opacity: 0, y: 60, scale: 0.92 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                onAnimationComplete={() => setEntered(true)}
-                className="relative w-[420px]"
-              >
+              <div className="relative w-[420px]">
                 <motion.div
-                  animate={entered ? { y: [0, -10, 0] } : {}}
-                  transition={entered ? { duration: 3, repeat: Infinity, ease: "easeInOut" } : {}}
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 >
                   <Image
                     src="/hero-phone.webp"
@@ -176,7 +143,7 @@ export default function Hero() {
                     priority
                   />
                 </motion.div>
-              </motion.div>
+              </div>
             ) : null}
           </div>
         </div>
