@@ -39,6 +39,7 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-8">
             {[
               { label: "Benefits", href: "#benefits" },
+              { label: "Stocks & ETFs", href: "#investment-options" },
               { label: "Features", href: "#features" },
               { label: "Compare", href: "#compare" },
               { label: "Reviews", href: "#reviews" },
@@ -109,6 +110,7 @@ export default function Header() {
             <nav className="flex flex-col p-4 gap-1">
               {[
                 { label: "Benefits", href: "#benefits" },
+                { label: "Stocks & ETFs", href: "#investment-options" },
                 { label: "Features", href: "#features" },
                 { label: "Compare", href: "#compare" },
                 { label: "Reviews", href: "#reviews" },

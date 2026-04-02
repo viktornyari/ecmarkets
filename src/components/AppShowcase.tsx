@@ -12,11 +12,14 @@ const screens = [
 
 export default function AppShowcase() {
   return (
-    <section className="relative py-20 sm:py-24 bg-black overflow-hidden">
+    <section id="investment-options" className="relative py-20 sm:py-24 bg-black overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-brand-red/5 blur-[160px] pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <AnimatedSection className="text-center max-w-3xl mx-auto mb-4" trackName="app_showcase">
+          <span className="inline-block text-sm font-semibold text-brand-red tracking-wide uppercase mb-3">
+            Investment options
+          </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
             4,000+ Stocks &amp; ETFs
           </h2>

@@ -2,6 +2,7 @@
 
 import AnimatedSection from "./AnimatedSection";
 import { trackConversion } from "@/lib/analytics";
+import Image from "next/image";
 
 const rows = [
   { feature: "Tax on capital gains", isa: "None", gia: "Up to 20%*" },
@@ -56,9 +57,13 @@ export default function ComparisonTable() {
                   </th>
                   <th className="w-[31%] px-3 py-3 sm:px-6 sm:py-4 text-[11px] sm:text-sm font-semibold text-white">
                     <div className="flex items-center gap-1.5 sm:gap-2">
-                      <span className="hidden sm:inline-flex h-6 w-6 items-center justify-center rounded-md bg-brand-red text-white text-xs font-bold shrink-0">
-                        S
-                      </span>
+                      <Image
+                        src="/favicon.svg"
+                        alt="EC"
+                        width={24}
+                        height={24}
+                        className="hidden sm:inline-block h-6 w-6 shrink-0"
+                      />
                       <span className="sm:hidden">ISA</span>
                       <span className="hidden sm:inline">Stocks &amp; Shares ISA</span>
                     </div>

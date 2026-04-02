@@ -30,7 +30,8 @@ When visitors land on this page, they are typically:
 The page addresses all three intents through a progressive disclosure model:
 - Hero → immediate value proposition and credibility
 - Benefits → answers "why an ISA?" and "why EC Markets?"
-- Features → shows the product in action
+- Stocks & ETFs → clarifies the investable universe early ("what can I buy?")
+- Features → explains key capabilities (hero imagery + floating UI cards)
 - Comparison → side-by-side proof of tax advantage
 - Social proof → builds confidence to commit
 - Lead capture / CTA → converts interest into action
@@ -56,7 +57,13 @@ Visitor lands (ad, search, referral)
              │
              ▼
    ┌─────────────────────┐
-   │  FEATURES SECTION    │ ← Product in action (app mockups)
+   │  STOCKS & ETFs       │ ← "What can I buy?" (4,000+ universe)
+   │  (Investment options)│   App screenshots in action
+   └─────────┬───────────┘
+             │
+             ▼
+   ┌─────────────────────┐
+   │  FEATURES SECTION    │ ← Hero imagery + small floating UI cards
    └─────────┬───────────┘
              │
              ▼
@@ -106,7 +113,7 @@ Visitor lands (ad, search, referral)
 | Short email form (1 field) | Lead capture — minimal commitment |
 | App store buttons | One-tap install path |
 | Sticky mobile CTA | Always-visible action on mobile |
-| Smooth scroll navigation | Quick access to any section |
+| Smooth scroll navigation | Quick access to key sections (incl. Stocks & ETFs) |
 | Progressive disclosure | Information complexity increases as user scrolls |
 
 ### Driving Action
