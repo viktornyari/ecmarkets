@@ -150,10 +150,11 @@ export default function Hero() {
                 transition={entered ? { duration: 3, repeat: Infinity, ease: "easeInOut" } : {}}
               >
                 <Image
-                  src="/hero-phone.png"
+                  src="/hero-phone.webp"
                   alt="EC Markets app showing portfolio"
-                  width={1730}
-                  height={2144}
+                  width={1000}
+                  height={1239}
+                  sizes="(min-width: 1024px) 420px, 0px"
                   className="relative w-full h-auto drop-shadow-2xl"
                   priority
                 />
