@@ -156,29 +156,66 @@ All animations use `ease: [0.25, 0.4, 0.25, 1]` (custom bezier) for natural, Str
 
 ## 7. Tracking & Conversion Measurement
 
-### Implemented Events
+### Conversion Funnel Logic
+
+The page is instrumented around a simple funnel:
+
+1. **Awareness:** Hero + benefits + product story
+2. **Intent:** CTA interactions and app-store click intent
+3. **Lead capture:** Email signup completion
+4. **Conversion proxy:** App install intent event (web-to-store handoff)
+
+This separates engagement actions from final commercial outcomes and makes drop-off analysis clear.
+
+### CTA Hierarchy (Primary vs Secondary)
+
+- **Primary CTAs**
+  - Download actions (`Download the App`, store buttons, sticky CTA, exit-intent CTA)
+  - Lead capture submit (`Sign Up`)
+- **Secondary CTAs**
+  - `Learn More`
+  - in-page navigation links
+
+Primary actions are mapped to conversion-focused events; secondary actions are treated as assistive engagement.
+
+### Basic Tracking Setup (Current State)
+
+Implemented events:
 
 | Event | Trigger | Properties |
 |-------|---------|------------|
-| `cta_click` | Any CTA button click | `conversion_type`, `page`, `funnel_step` |
-| `form_submit` | Email form submission | `form`, `email_domain` |
-| `app_install_intent` | App store button click | `platform` (ios/android) |
+| `cta_click` | CTA clicks across the page | `conversion_type`, `page`, `funnel_step` |
+| `form_submit` | Successful lead form submission | `form`, `email_domain` |
+| `app_install_intent` | App Store / Google Play click | `platform` (`ios`/`android`) |
 | `section_view` | Section enters viewport | `section_name` |
-| `exit_intent` | Mouse leaves viewport | `page` |
+| `exit_intent` | Exit-intent modal trigger | `page` |
 
-### Recommended Tracking Stack
-- **Google Analytics 4** (GA4) via `gtag.js` — event-based, pre-wired
-- **Google Tag Manager** — dataLayer push on every event
-- **Adjust / AppsFlyer** — deep-link app install attribution
-- **Hotjar / FullStory** — session recordings for UX insights
+Runtime setup:
+- **GA4 direct** via `gtag.js` (live)
+- **dataLayer push** also emitted per event for GTM compatibility
+- **Debug mode** available via `?ga_debug=1` (and localStorage flag) for DebugView validation
+
+### Bonus: App Installs and Conversion Rate
+
+#### App installs
+- Current measurable web KPI is **`app_install_intent`** (store handoff intent).
+- If true post-install confirmation is needed, connect mobile attribution tooling (AppsFlyer/Adjust/Firebase) and map confirmed installs back into GA4.
+
+#### Conversion rate
+
+Recommended formulas:
+
+- **Install intent rate** = `app_install_intent / landing_sessions`
+- **Email signup rate** = `form_submit / landing_sessions`
+- **CTA-to-install intent rate** = `app_install_intent / cta_click (conversion_type=app_download)`
 
 ### Key Metrics to Monitor
-1. **Conversion rate:** Visitors → App downloads (primary)
-2. **Email capture rate:** Visitors → Email signups (secondary)
-3. **CTA click-through rate:** By position (hero, comparison, sticky, exit)
-4. **Scroll depth:** % reaching comparison table, social proof, download section
-5. **Bounce rate:** First-time visitor engagement
-6. **Time on page:** Engagement quality signal
+1. **Install intent rate** (primary KPI)
+2. **Email signup rate** (secondary KPI)
+3. **CTA click-through rate** by placement (hero, comparison, sticky, exit)
+4. **Funnel drop-off** (awareness → CTA click → install intent / form submit)
+5. **Scroll depth** to key trust/conversion sections
+6. **Bounce rate and engaged sessions** for traffic quality
 
 ---
 
