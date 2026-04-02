@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 /**
  * Legacy thin ticker strip (official embed script).
@@ -22,34 +22,53 @@ const WIDGET_CONFIG = {
   showSymbolLogo: true,
   colorTheme: "dark",
   isTransparent: true,
-  displayMode: "adaptive",
+  /* "regular" avoids adaptive relayout that can reorder / swap symbols by width */
+  displayMode: "regular",
   locale: "en_GB",
 };
 
 export default function TickerTape() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (window.matchMedia("(max-width: 767px)").matches) return;
 
     const root = containerRef.current;
     if (!root) return;
 
-    root.replaceChildren();
+    let cancelled = false;
+    let raf0 = 0;
+    let raf1 = 0;
 
-    const widget = document.createElement("div");
-    widget.className = "tradingview-widget-container__widget";
+    function inject() {
+      if (cancelled) return;
+      const el = containerRef.current;
+      if (!el) return;
 
-    const script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = EMBED_SRC;
-    script.async = true;
-    script.textContent = JSON.stringify(WIDGET_CONFIG);
+      el.replaceChildren();
 
-    root.appendChild(widget);
-    root.appendChild(script);
+      const widget = document.createElement("div");
+      widget.className = "tradingview-widget-container__widget";
+
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.async = true;
+      script.src = EMBED_SRC;
+      script.textContent = JSON.stringify(WIDGET_CONFIG);
+
+      el.appendChild(widget);
+      el.appendChild(script);
+    }
+
+    /* Wait for layout + skip racing React Strict Mode’s mount→unmount→remount vs async TV script */
+    raf0 = requestAnimationFrame(() => {
+      raf1 = requestAnimationFrame(inject);
+    });
 
     return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf0);
+      cancelAnimationFrame(raf1);
       root.replaceChildren();
     };
   }, []);

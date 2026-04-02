@@ -9,12 +9,15 @@ import TickerTape from "./TickerTape";
 export default function Hero() {
   const [entered, setEntered] = useState(false);
   return (
-    <section className="relative flex flex-col overflow-hidden bg-black">
-      {/* Subtle red accents — kept away from phone area */}
+    <section className="relative flex flex-col overflow-hidden bg-[#0a0a0c]">
+      {/* Ambient mesh: deep burgundy left (copy), navy / indigo right (phone side) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-56 -left-24 h-[440px] w-[440px] rounded-full bg-brand-red/12 blur-[120px]" />
-        <div className="absolute top-[24%] left-[26%] h-[300px] w-[300px] rounded-full bg-brand-red/8 blur-[110px]" />
-        <div className="absolute -bottom-32 left-[14%] h-[280px] w-[280px] rounded-full bg-brand-red/10 blur-[105px]" />
+        <div className="absolute -top-48 -left-40 h-[min(520px,90vw)] w-[min(520px,90vw)] rounded-full bg-[#6b1420]/45 blur-[140px]" />
+        <div className="absolute top-[18%] -left-16 h-[400px] w-[400px] rounded-full bg-brand-red/25 blur-[130px]" />
+        <div className="absolute -bottom-36 left-[5%] h-[340px] w-[340px] rounded-full bg-[#4a0f18]/35 blur-[110px]" />
+        <div className="absolute -top-32 -right-28 h-[min(500px,85vw)] w-[min(500px,85vw)] rounded-full bg-[#152a4a]/55 blur-[130px]" />
+        <div className="absolute top-[30%] -right-10 h-[380px] w-[380px] rounded-full bg-brand-blue-900/35 blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[8%] h-[320px] w-[320px] rounded-full bg-[#1a2d4d]/40 blur-[100px]" />
       </div>
 
       {/* Fine grid */}
@@ -149,9 +152,10 @@ export default function Hero() {
                 <Image
                   src="/hero-phone.png"
                   alt="EC Markets app showing portfolio"
-                  width={840}
-                  height={1050}
+                  width={1730}
+                  height={2144}
                   className="relative w-full h-auto drop-shadow-2xl"
+                  priority
                 />
               </motion.div>
             </motion.div>
