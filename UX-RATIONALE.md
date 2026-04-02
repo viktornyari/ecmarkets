@@ -153,7 +153,7 @@ All animations use `ease: [0.25, 0.4, 0.25, 1]` (custom bezier) for natural, Str
 - **Static generation (SSG):** Page is pre-rendered at build time — no server round-trips
 - **Font optimization:** `next/font` with `display: swap` prevents layout shift
 - **Zero external JS dependencies** beyond React and Framer Motion
-- **No images:** All visuals are SVG/CSS — zero image network requests
+- **Images:** Screenshots, feature photography, and backgrounds live in `public/` and are served through `next/image` (formats and sizing handled by the framework); SVG remains used for logos and simple graphics where appropriate
 - **Tailwind CSS purging:** Only used classes ship to production
 - **Semantic HTML:** `<section>`, `<nav>`, `<main>`, `<header>`, `<footer>` for SEO + accessibility
 - **Passive scroll listeners:** `{ passive: true }` on all scroll handlers
