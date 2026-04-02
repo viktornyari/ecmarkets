@@ -20,7 +20,14 @@ function useLgViewport() {
 
 export default function Hero() {
   const [entered, setEntered] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
   const showPhone = useLgViewport();
+  /** Avoid hydration mismatch: server + first client paint use static copy; motion after layout. */
+  const motionCopy = hydrated && showPhone;
+
+  useLayoutEffect(() => {
+    setHydrated(true);
+  }, []);
 
   useEffect(() => {
     if (!showPhone) setEntered(false);
@@ -53,7 +60,7 @@ export default function Hero() {
       <div className="relative flex-1 flex items-center mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 pt-28 pb-12 md:pt-36 md:pb-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div>
-            {showPhone ? (
+            {motionCopy ? (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -71,7 +78,7 @@ export default function Hero() {
               </span>
             )}
 
-            {showPhone ? (
+            {motionCopy ? (
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -96,7 +103,7 @@ export default function Hero() {
               </h1>
             )}
 
-            {showPhone ? (
+            {motionCopy ? (
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -113,7 +120,7 @@ export default function Hero() {
               </p>
             )}
 
-            {showPhone ? (
+            {motionCopy ? (
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -198,7 +205,7 @@ export default function Hero() {
               </div>
             )}
 
-            {showPhone ? (
+            {motionCopy ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
