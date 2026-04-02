@@ -1,13 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { trackConversion } from "@/lib/analytics";
 import TickerTape from "./TickerTape";
 
+function useLgViewport() {
+  const [lg, setLg] = useState(false);
+  useLayoutEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const sync = () => setLg(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
+  return lg;
+}
+
 export default function Hero() {
   const [entered, setEntered] = useState(false);
+  const showPhone = useLgViewport();
   return (
     <section className="relative flex flex-col overflow-hidden bg-[#0a0a0c]">
       {/* Ambient mesh: deep burgundy left (copy), navy / indigo right (phone side) */}
@@ -136,30 +149,32 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Phone mockup — Framer Motion animated */}
-          <div className="relative hidden lg:flex justify-center">
-            <motion.div
-              initial={{ opacity: 0, y: 60, scale: 0.92 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              onAnimationComplete={() => setEntered(true)}
-              className="relative w-[420px]"
-            >
+          {/* lg+ column shell keeps grid stable; image only mounts at lg+ so mobile skips fetch/decode */}
+          <div className="relative hidden lg:flex justify-center min-h-[min(520px,55vh)]">
+            {showPhone ? (
               <motion.div
-                animate={entered ? { y: [0, -10, 0] } : {}}
-                transition={entered ? { duration: 3, repeat: Infinity, ease: "easeInOut" } : {}}
+                initial={{ opacity: 0, y: 60, scale: 0.92 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                onAnimationComplete={() => setEntered(true)}
+                className="relative w-[420px]"
               >
-                <Image
-                  src="/hero-phone.webp"
-                  alt="EC Markets app showing portfolio"
-                  width={1000}
-                  height={1239}
-                  sizes="(min-width: 1024px) 420px, 0px"
-                  className="relative w-full h-auto drop-shadow-2xl"
-                  priority
-                />
+                <motion.div
+                  animate={entered ? { y: [0, -10, 0] } : {}}
+                  transition={entered ? { duration: 3, repeat: Infinity, ease: "easeInOut" } : {}}
+                >
+                  <Image
+                    src="/hero-phone.webp"
+                    alt="EC Markets app showing portfolio"
+                    width={1000}
+                    height={1239}
+                    sizes="420px"
+                    className="relative w-full h-auto drop-shadow-2xl"
+                    priority
+                  />
+                </motion.div>
               </motion.div>
-            </motion.div>
+            ) : null}
           </div>
         </div>
       </div>
