@@ -40,53 +40,18 @@ The page addresses all three intents through a progressive disclosure model:
 
 ## 3. Conversion Journey
 
-```
-Visitor lands (ad, search, referral)
-        │
-        ▼
-   ┌─────────────────────┐
-   │  HERO SECTION        │ ← Immediate value prop, trust signals
-   │  CTAs: Download App  │   (FCA regulated, £0 fee, FSCS)
-   │        Learn More    │
-   └─────────┬───────────┘
-             │ (scroll / click "Learn More")
-             ▼
-   ┌─────────────────────┐
-   │  BENEFITS SECTION    │ ← Tax-free, low fees, app, security
-   └─────────┬───────────┘
-             │
-             ▼
-   ┌─────────────────────┐
-   │  STOCKS & ETFs       │ ← "What can I buy?" (4,000+ universe)
-   │  (Investment options)│   App screenshots in action
-   └─────────┬───────────┘
-             │
-             ▼
-   ┌─────────────────────┐
-   │  FEATURES SECTION    │ ← Hero imagery + small floating UI cards
-   └─────────┬───────────┘
-             │
-             ▼
-   ┌─────────────────────┐
-   │  COMPARISON TABLE    │ ← ISA vs GIA, concrete tax savings
-   │  CTA: Open Your ISA  │
-   └─────────┬───────────┘
-             │
-             ▼
-   ┌─────────────────────┐
-   │  SOCIAL PROOF        │ ← Testimonials, ratings, trust badges
-   └─────────┬───────────┘
-             │
-             ▼
-   ┌─────────────────────┐
-   │  LEAD CAPTURE        │ ← Email signup (lower commitment)
-   └─────────┬───────────┘
-             │
-             ▼
-   ┌─────────────────────┐
-   │  DOWNLOAD CTA        │ ← App Store / Google Play (primary goal)
-   └─────────────────────┘
-```
+Linear funnel (top → bottom). Each row is one section of the landing page; columns stay aligned in GitHub and most Markdown viewers.
+
+| Step | Section | Primary content | Visitor takeaway |
+|:----:|---------|-----------------|------------------|
+| 1 | Hero | CTAs: Download App, Learn More | Immediate value prop + trust (FCA regulated, £0 fee, FSCS) |
+| 2 | Benefits | Four benefit cards | Tax-free, low fees, app, security |
+| 3 | Stocks & ETFs | Investment options subtitle + app screenshots | “What can I buy?” — 4,000+ universe; product in action |
+| 4 | Features | Three alternating feature rows (imagery + UI cards) | Key capabilities and how the app behaves |
+| 5 | Comparison table | ISA vs GIA + CTA: Open Your ISA | Concrete tax contrast vs a GIA |
+| 6 | Social proof | Ratings, stats, badges | Third-party validation + trust |
+| 7 | Lead capture | Single-field email form | Lower-commitment conversion before install |
+| 8 | Download CTA | App Store / Google Play buttons | Primary conversion: install the app |
 
 **Two conversion paths:**
 - **High intent:** Hero CTA → Direct app download
