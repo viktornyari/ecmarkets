@@ -6,7 +6,10 @@ import { trackConversion, trackEvent } from "@/lib/analytics";
 
 export default function DownloadCTA() {
   return (
-    <section id="download" className="relative min-h-[500px] overflow-hidden">
+    <section
+      id="download"
+      className="relative min-h-[760px] sm:min-h-[700px] lg:min-h-[640px] overflow-hidden"
+    >
       <Image
         src="/download-cta-bg-v2.jpg"
         alt=""
@@ -17,7 +20,7 @@ export default function DownloadCTA() {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 flex items-center min-h-[500px]">
+      <div className="relative mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-12 sm:py-24 lg:py-32 flex items-end sm:items-center min-h-[760px] sm:min-h-[700px] lg:min-h-[640px]">
         <AnimatedSection>
           <div className="max-w-xl">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.1]">
