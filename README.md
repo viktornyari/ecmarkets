@@ -32,6 +32,7 @@ src/
 │   ├── Header.tsx          # Sticky nav with scroll-aware styling
 │   ├── Hero.tsx            # Hero with entrance animations & phone mockup
 │   ├── Benefits.tsx        # 4 benefit cards with hover interactions
+│   ├── AppShowcase.tsx     # Stocks & ETFs / investment options
 │   ├── Features.tsx        # 3 feature sections with app visuals
 │   ├── ComparisonTable.tsx # ISA vs GIA side-by-side table
 │   ├── SocialProof.tsx     # Reviews, ratings & trust badges
